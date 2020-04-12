@@ -1,19 +1,15 @@
 # Calculate necessary fuel
-from math import trunc
 
 def calculate_fuel(mass):
-    necessary_fuel = trunc(mass/3)-2
+    necessary_fuel = (mass // 3) - 2
     if necessary_fuel > 6:
-        final_necessary_fuel = calculate_fuel(necessary_fuel)
-        return necessary_fuel + final_necessary_fuel
+        return necessary_fuel + calculate_fuel(necessary_fuel)
     else:
         return necessary_fuel
 
 if __name__ == "__main__":
-    f = open("modules_1.txt","r")
+    modules = open("modules_1.txt","r")
 
-    Sum = 0
-    for module in f:
-        Sum = Sum + calculate_fuel(int(module))
+    part_one = sum(calculate_fuel(int(module)) for module in modules)
 
-    print("the necessary fuel is: {}".format(Sum))
+    print("the necessary fuel is: {}".format(part_one))
