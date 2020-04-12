@@ -1,4 +1,5 @@
 #implement intcode computer
+from itertools import product
 
 def int_computer(inst_list_original):
     #make copy
@@ -40,14 +41,12 @@ if __name__ == "__main__":
     else:
         print("An error occurred. Instruction not recognised.")
 
-    for i in range(100):
-        print(i)
-        for j in range(100):
-            instruction_list[1] = i
-            instruction_list[2] = j
+    for noun, verb in product(range(100), range(100)):
+        instruction_list[1] = noun
+        instruction_list[2] = verb
 
-            result = int_computer(instruction_list)
-            if result[0] == 19690720:
-                print("The solution is (i,j)=({},{})".format(i,j))
-                break
+        result = int_computer(instruction_list)
+        if result[0] == 19690720:
+            print("The solution is (noun, verb)=({},{})".format(noun, verb))
+            break
 
