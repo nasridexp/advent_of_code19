@@ -143,28 +143,14 @@ if __name__ == "__main__":
         pers = list(permutations(phase_seq, 3))
 
         max_thrust = 0
-
-        # ========================= PART 1 =================================
-        # for per in pers:
-        # 	thruster = IntComputer(instruction_list)
-        # 	output = thruster.run_programme([per[0], 0])
-	       #  for phase in per[1:]:
-	       #      thruster = IntComputer(instruction_list)
-	       #      print("phase: {} output: {}".format(phase, output))
-	       #      output = thruster.run_programme([phase, output])
-	       #  if output > max_thrust: max_thrust = output
-        # print("Max_thrust is: {}".format(max_thrust))
-
-        # ========================= PART 2 =================================
-	    for per in pers:
-	    	output = 0
-	    	while output != None:
-	        	thruster = IntComputer(instruction_list)
-	        	output = thruster.run_programme([per[0], output])
-		        for phase in per[1:]:
-		            thruster = IntComputer(instruction_list)
-		            print("phase: {} output: {}".format(phase, output))
-		            output = thruster.run_programme([phase, output])
+        for per in pers:
+        	thruster = IntComputer(instruction_list)
+        	output = thruster.run_programme([per[0], 0])
+	        for phase in per[1:]:
+	            thruster = IntComputer(instruction_list)
+	            print("phase: {} output: {}".format(phase, output))
+	            output = thruster.run_programme([phase, output])
 	        if output > max_thrust: max_thrust = output
         print("Max_thrust is: {}".format(max_thrust))
+	        
 
