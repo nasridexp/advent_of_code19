@@ -140,7 +140,7 @@ if __name__ == "__main__":
         phase_seq = [0,1,2,3,4]
 
         # find permutations
-        pers = list(permutations(phase_seq, 3))
+        pers = list(permutations(phase_seq, 5))
 
         max_thrust = 0
         for per in pers:
@@ -150,7 +150,8 @@ if __name__ == "__main__":
 	            thruster = IntComputer(instruction_list)
 	            print("phase: {} output: {}".format(phase, output))
 	            output = thruster.run_programme([phase, output])
+	            print("output is {}".format(output))
 	        if output > max_thrust: max_thrust = output
         print("Max_thrust is: {}".format(max_thrust))
-	        
+
 
